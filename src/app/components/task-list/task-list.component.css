@@ -1,0 +1,49 @@
+h2 {
+  color: #343a40;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.statusFilter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+.statusFilter p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #495057;
+}
+
+.statusFilter select {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  cursor: pointer;
+  transition: border 0.3s ease-in-out;
+}
+
+.statusFilter select:hover {
+  border-color: #007bff;
+}
+
+.statusFilter select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+p {
+  text-align: center;
+  color: #6c757d;
+  font-size: 16px;
+  margin-top: 20px;
+}
