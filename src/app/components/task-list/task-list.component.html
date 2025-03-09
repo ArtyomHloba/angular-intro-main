@@ -8,20 +8,28 @@
   <p>Фільтр за статусом</p>
   <select (change)="onSelected($event)">
     <option [value]="'all'">Bci</option>
-    <option [value]="'TaskStatus.TODO'">До роботи</option>
-    <option [value]="'TaskStatus.IN_PROGRESS'">B процесі</option>
-    <option [value]="'TaskStatus.DONE'">Виконано</option>
+    <option [value]="TaskStatus.TODO">До роботи</option>
+    <option [value]="TaskStatus.IN_PROGRESS">B процесі</option>
+    <option [value]="TaskStatus.DONE">Виконано</option>
   </select>
 </div>
 
-@for (task of myTasks | statusFilter: selectedStatus; track task.id; let index =
-$index) {
-<app-task-item
-  [task]="task"
-  (taskDeleted)="deleteTask($event)"
-  (taskEdited)="editTask($event)"
->
-</app-task-item>
-} @empty {
-<p>Завдання відсутні</p>
-}
+<div *ngIf="myTasks.length > 0; else emptyList">
+  <div
+    *ngFor="
+      let task of myTasks | statusFilter: selectedStatus;
+      trackBy: trackTask;
+      let index = index
+    "
+  >
+    <app-task-item
+      [task]="task"
+      (taskDeleted)="deleteTask($event)"
+      (taskEdited)="editTask($event)"
+    ></app-task-item>
+  </div>
+</div>
+
+<ng-template #emptyList>
+  <p>Завдання відсутні</p>
+</ng-template>

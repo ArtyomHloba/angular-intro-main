@@ -12,7 +12,6 @@ import { TaskStatus } from '../../core/models/status.enum'
 export class TaskListComponent {
   myTasks: Task[] = tasks
   TaskStatus = TaskStatus
-
   selectedStatus: TaskStatus | 'all' = 'all'
 
   deleteTask (index: number): void {
@@ -49,5 +48,9 @@ export class TaskListComponent {
 
   editTask (task: Task): void {
     this.editingTask = { ...task }
+  }
+
+  trackTask (index: number, task: Task) {
+    return task.id
   }
 }
